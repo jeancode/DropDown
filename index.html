@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            margin:0px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #contenido{
+            position:fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(150, 196, 238);
+            background: linear-gradient(0deg,rgb(78, 115, 214),rgb(12, 204, 252));       
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #formulario{
+            width: 300px;
+            ;
+            background-color:rgba(255, 255, 255, 0.87);
+            border-radius: 10px;;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;;
+        }
+        #perfil{
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.151);;
+        }
+        #imageUser{
+            width: 100px;
+            height: 100px;
+        
+        }
+        #info{
+            flex:1;
+            padding-left: 10px;;
+            
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #imageUser{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #imageUserDisplay{
+            width: 80%;
+            height:80%;
+            background:blue;
+            border-radius: 50%;
+            background-image: url(./images/perfil.jpeg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            
+
+        }
+        #infoName{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #infoPosition{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #infoName h2{
+            margin: 0px;
+        }
+        #perfilConf{
+            height:0px;
+            overflow: hidden;
+        }
+        .perfilConfItem{
+            width: 100%;
+            min-height: 35px;;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-bottom: 1px solid rgba(184, 184, 184, 0.397);;
+            background-position: 10px center;
+            background-size: 25px;;
+            background-repeat: no-repeat;
+        }
+        .perfilConfItem:hover{
+            background-color: rgb(42, 161, 240);;
+            color:white;
+            -webkit-transition: all .5s ease;;
+
+        }
+        #moreInfo{
+            width: 100%;
+            min-height: 35px;
+            background: rgb(236, 236, 236);
+            display:flex;
+            justify-content:center;
+            align-items: center;
+        }
+        #moreInfo:hover{
+            background-color: rgb(27, 183, 255);
+            color:white;
+            -webkit-transition: all .5s ease;
+            cursor: default;
+            -webkit-user-select: none;
+        }
+        .imagePerfil{
+            background-image: url(https://image.flaticon.com/icons/png/128/456/456212.png);
+        }
+
+        .imageInbox{
+            background-image: url(https://image.flaticon.com/icons/png/128/786/786205.png);
+
+        }
+        .imageConfig{
+            background-image:url(https://image.flaticon.com/icons/png/512/15/15185.png);
+        }
+        .imgaeSuport{
+            background-image: url(https://image.flaticon.com/icons/png/128/3011/3011055.png);
+
+        }
+        .imageSalir{
+            background-image: url(https://image.flaticon.com/icons/png/128/660/660252.png);
+        }
+
+
+    </style>
+    <script>
+
+        $(document).ready(function(){
+
+            var menu =  false;
+            //alert("HOla Mundo");
+            $("#moreInfo").click(function(){
+                if(menu == false){
+                    var size = $("#perfilConf")[0].scrollHeight;
+
+                    $("#perfilConf").animate({
+                        "height":size+"px"
+                    });
+                    
+                    menu = true;
+                }else if(menu == true){
+
+                    $("#perfilConf").animate({
+                        "height":"0px"
+                    });
+                    menu =  false;
+                }
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="contenido">
+
+        <div id="formulario">
+            <div id="perfil">
+
+                <div id="imageUser">
+                    <div id="imageUserDisplay">
+
+                    </div>
+                </div>
+                <div id="info">
+
+                    <div id="infoName"><h2>Jean Codec</h2></div>
+                    <div id="infoPosition">Diseñador Web</div>
+
+                </div>
+            </div>
+            <div id="perfilConf">
+
+                <div class="perfilConfItem imagePerfil">Editar Perfil</div>
+                <div class="perfilConfItem imageInbox">Inbox</div>
+                <div class="perfilConfItem imageConfig">Configuración</div>
+                <div class="perfilConfItem imgaeSuport">Soporte</div>
+                <div class="perfilConfItem imageSalir">Salir</div>
+
+            </div>
+
+            <div id="moreInfo">
+                Más Información
+            </div>
+        </div>
+    </div>
+</body>
+</html>
